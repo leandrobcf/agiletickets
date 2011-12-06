@@ -12,8 +12,22 @@ public class Reserva {
 	@GeneratedValue
 	private Long id;
 
-	private String cadeira;
-
 	@ManyToOne
 	private Espetaculo espetaculo;
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setEspetaculo(Espetaculo espetaculo) {
+		this.espetaculo = espetaculo;
+	}
+
+	public Espetaculo getEspetaculo() {
+		return espetaculo;
+	}
 }
