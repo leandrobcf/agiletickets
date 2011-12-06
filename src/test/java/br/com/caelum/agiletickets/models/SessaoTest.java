@@ -7,16 +7,16 @@ import org.junit.Test;
 
 public class SessaoTest {
 
-	private Sessao s;
+	private SessaoBuilder builder;
 	
 	@Before
 	public void inicializa() {
-		s = new Sessao();
+		builder = new SessaoBuilder();
 	}
 
 	@Test
 	public void deveVender1ingressoSeHa2vagas() throws Exception {		
-        s.setTotalIngressos(2);
+        Sessao s = builder.comTotalDeIngressos(2).constroi();
 
         Assert.assertTrue(s.podeReservar(1));
 	}
@@ -26,7 +26,7 @@ public class SessaoTest {
 	@Test
 	public void naoDeveVender3ingressoSeHa2vagas() throws Exception {
 		
-		s.setTotalIngressos(2);
+		Sessao s = builder.comTotalDeIngressos(2).constroi();
 
 		Assert.assertFalse(s.podeReservar(3));
 	}
@@ -34,7 +34,7 @@ public class SessaoTest {
 	@Test
 	public void reservarIngressosDeveDiminuirONumeroDeIngressosDisponiveis() throws Exception {
 	
-		s.setTotalIngressos(5);
+		Sessao s = builder.comTotalDeIngressos(5).constroi();
 
 		s.reserva(3);
 		Assert.assertEquals(2, s.getIngressosDisponiveis().intValue());
@@ -43,7 +43,7 @@ public class SessaoTest {
 	@Test
 	public void devePoderReservarTodosIngressosDisponiveis() throws Exception {
 		
-		s.setTotalIngressos(5);
+		Sessao s = builder.comTotalDeIngressos(5).constroi();
 		
 		Assert.assertTrue(s.podeReservar(5));
 	}
