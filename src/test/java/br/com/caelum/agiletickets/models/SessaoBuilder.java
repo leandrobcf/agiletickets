@@ -50,4 +50,9 @@ public class SessaoBuilder {
 		return instancia;
 	}
 
+	public SessaoBuilder comPeriodicidade(Periodicidade p) {
+		instancia.setPeriodicidade(p);
+		return this;
+	}
+
 }

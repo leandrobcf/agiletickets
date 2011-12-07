@@ -47,4 +47,6 @@ public class SessaoTest {
 		
 		Assert.assertTrue(s.podeReservar(5));
 	}
+	
+	
 }

@@ -29,6 +29,8 @@ public class Sessao {
 	private Integer totalIngressos = 0;
 
 	private Integer ingressosReservados = 0;
+	
+	private Periodicidade periodicidade;
 
 	public Long getId() {
 		return id;
@@ -86,6 +88,14 @@ public class Sessao {
 		return totalIngressos - ingressosReservados;
 	}
 
+	public Periodicidade getPeriodicidade() {
+		return periodicidade;
+	}
+	
+	public void setPeriodicidade(Periodicidade periodicidade) {
+		this.periodicidade = periodicidade;
+	}
+
 	public void reserva(Integer numeroDeIngressos) {
 		this.ingressosReservados += numeroDeIngressos;
 	}
@@ -93,4 +103,8 @@ public class Sessao {
 	public boolean podeReservar(Integer numeroDeIngressos) {
 		return getIngressosDisponiveis() >= numeroDeIngressos;
 	}
+
+	
+		
+	
 }
