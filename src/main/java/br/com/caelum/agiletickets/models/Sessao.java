@@ -1,5 +1,6 @@
 package br.com.caelum.agiletickets.models;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 
 import javax.persistence.Entity;
@@ -31,6 +32,8 @@ public class Sessao {
 	private Integer ingressosReservados = 0;
 	
 	private Periodicidade periodicidade;
+
+	private BigDecimal preco;
 
 	public Long getId() {
 		return id;
@@ -104,7 +107,13 @@ public class Sessao {
 		return getIngressosDisponiveis() >= numeroDeIngressos;
 	}
 
-	
-		
-	
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
+
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
 }
